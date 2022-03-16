@@ -16,10 +16,10 @@
 <div class="header">
     <img src="../images/logo.png" alt="logo" width="10%" class="logo">
     <div class="menu">
-        <a href="" class="home menu-item">
+        <a href="../index.php?pages=post_view" class="home menu-item">
             <i class="fa fa-home fa-2x"></i>
         </a>
-        <a href="" class="profile menu-item">
+        <a href="../index.php?pages=profile_view" class="profile menu-item">
             <i class="fa fa-user fa-2x"></i>
         </a>
         <a href="" class="logout menu-item">

@@ -14,4 +14,27 @@ require_once('database.php');
         $posts = $statement->fetchAll();
         return $posts;
     }
+    function createPost($post_desc, $file_name){
+
+        $target = "../images/" .$_FILES['file_name']['name'];
+        move_uploaded_file($_FILES['file_name']['tmp_name'],$target);
+
+        global $db;
+    
+        $statement=$db->prepare("INSERT INTO posts(description, image) VALUES (:post_desc,:image)");
+        $statement->execute([
+            ':post_desc'=>$post_desc,
+            ':image'=>$file_name
+        ]);
+       
+
+
+        return $statement->rowCount()==1;
+
+
+
+
+    }
+  
+   
 ?>
