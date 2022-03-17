@@ -52,4 +52,14 @@ require_once('database.php');
     return ($statement->rowCount()==1);
 }
   
+
+function deletePost($id)
+{
+    global $db;
+    $statament = $db->prepare("DELETE FROM posts where post_id=:id;");
+    $statament -> execute([
+        ':id' => $id
+    ]);
+    return ($statament -> rowCount()==1);
+}
 ?>

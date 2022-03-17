@@ -19,7 +19,7 @@
                 <i class="fa fa-ellipsis-h fa-lg" data-bs-toggle="dropdown"></i>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="../index.php?pages=edit_view&post_id=<?= $post['post_id']?>">Edit post</a></li>
-                    <li><a class="dropdown-item" href="#">Delete post</a></li>
+                    <li><a class="dropdown-item" href="../controllers/delete_post.php?post_id=<?php echo $post['post_id'];?>">Delete post</a></li>
                 </ul>
             </div>
 
