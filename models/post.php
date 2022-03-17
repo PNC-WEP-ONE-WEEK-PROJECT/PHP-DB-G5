@@ -10,7 +10,7 @@ require_once('database.php');
     }
     function getDataPosts() {
         global $db;
-        $statement = $db->query("SELECT description,image FROM posts");
+        $statement = $db->query("SELECT description,image,post_id FROM posts");
         $posts = $statement->fetchAll();
         return $posts;
     }
@@ -24,17 +24,32 @@ require_once('database.php');
         $statement=$db->prepare("INSERT INTO posts(description, image) VALUES (:post_desc,:image)");
         $statement->execute([
             ':post_desc'=>$post_desc,
-            ':image'=>$file_name
+            ':image'=>$file_name,
+
         ]);
-       
-
-
         return $statement->rowCount()==1;
 
-
-
-
     }
+
+    function getPostById($id){
+        global $db;
+        $statement=$db->prepare("SELECT post_id, description, image FROM posts WHERE post_id=:id_post;");
+        $statement->execute([
+            ':id_post' => $id
+        ]);
+        $post = $statement->fetch();
+        return $post;
+}
+
+    function updatePost($id, $post_desc, $file_name){
+        global $db;
+        $statement=$db->prepare("UPDATE posts SET description=:post_desc, image=:image WHERE post_id=:id_post");
+        $statement->execute([
+            ':post_desc'=> $post_desc,
+            ':image'=> $file_name,
+            ':id_post'=> $id
+    ]);
+    return ($statement->rowCount()==1);
+}
   
-   
 ?>

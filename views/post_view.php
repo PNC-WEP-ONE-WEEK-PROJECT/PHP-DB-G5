@@ -7,9 +7,23 @@
     foreach ($posts as $post):
 ?> 
     <div class="card col-6 mt-2 p-0">
-        <div class="card-header profile-post">                
-            <img src="../images/<?= $user['image']; ?>" width="10%" alt="" class="image-profile">
-            <strong class="p-2 profile_name"><?= $user['username'] ?></strong>
+        <div class="card-header profile-post">    
+            <div class="profile_user">
+                <a href="../index.php?pages=profile_view">
+                    <img src="../images/<?= $user['image']; ?>" width="10%" alt="" class="image-profile">
+                    <strong class="p-2 profile_name"><?= $user['username'] ?></strong>
+                </a>
+                
+            </div>      
+            <div class="dropdown">
+                <i class="fa fa-ellipsis-h fa-lg" data-bs-toggle="dropdown"></i>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../index.php?pages=edit_view&post_id=<?= $post['post_id']?>">Edit post</a></li>
+                    <li><a class="dropdown-item" href="#">Delete post</a></li>
+                </ul>
+            </div>
+
+
         </div>
         <div class="card-body p-0">
             <div class="caption p-3">

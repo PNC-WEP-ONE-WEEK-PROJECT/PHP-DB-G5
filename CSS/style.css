@@ -60,6 +60,17 @@
     border-radius: 5px;
     background-color: #b3bbe7;
 }
+.fa-ellipsis-h{
+    
+    cursor: pointer;
+}
+.profile_user a{
+    text-decoration: none;
+    color: black;
+}
+.profile_user{
+    cursor: pointer;
+}
 
 .profile-menu-profile {
     position: absolute;
