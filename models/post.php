@@ -16,8 +16,9 @@ require_once('database.php');
     }
     function createPost($post_desc, $file_name){
 
-        $target = "../images/" .$_FILES['file_name']['name'];
-        move_uploaded_file($_FILES['file_name']['tmp_name'],$target);
+        $target = "../images/" .$file_name;
+        $tmp=$_FILES['file_name']['tmp_name'];
+        move_uploaded_file($tmp,$target);
 
         global $db;
     
