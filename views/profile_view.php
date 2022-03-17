@@ -1,6 +1,6 @@
 <div class="container p-3">
     <div class="col-6 cover">
-        <div class="image-profile profile-menu-profile">
+        <div class="image-profile profile-menu-profile d-flex ">
             <img src="../images/rady.jpg" width="12%" alt="">
         </div>
     </div>

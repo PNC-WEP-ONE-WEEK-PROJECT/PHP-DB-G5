@@ -16,9 +16,9 @@ require_once('database.php');
     }
     function createPost($post_desc, $file_name){
 
-        $target = "../images/" .$file_name;
-        $tmp=$_FILES['file_name']['tmp_name'];
-        move_uploaded_file($tmp,$target);
+        $target = "../upload_image/" .$file_name;
+        $temporary=$_FILES['file_name']['tmp_name'];
+        move_uploaded_file($temporary,$target);
 
         global $db;
     
@@ -43,6 +43,9 @@ require_once('database.php');
 }
 
     function updatePost($id, $post_desc, $file_name){
+        $target = "../upload_image/" .$file_name;
+        $temporary=$_FILES['file_name']['tmp_name'];
+        move_uploaded_file($temporary,$target);
         global $db;
         $statement=$db->prepare("UPDATE posts SET description=:post_desc, image=:image WHERE post_id=:id_post");
         $statement->execute([
@@ -56,7 +59,9 @@ require_once('database.php');
 
 function deletePost($id)
 {
+    
     global $db;
+
     $statament = $db->prepare("DELETE FROM posts where post_id=:id;");
     $statament -> execute([
         ':id' => $id

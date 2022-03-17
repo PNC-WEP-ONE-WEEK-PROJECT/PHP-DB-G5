@@ -30,7 +30,7 @@
                 <?= $post['description'] ?>
             </div>
             <div class="image">
-                <img src="../images/<?= $post['image']?>" width="100%" alt="">
+                <img src="../upload_image/<?= $post['image']?>" width="100%" alt="">
             </div>
         </div>
         <div class="card-footer p-3 d-flex justify-content-center">
