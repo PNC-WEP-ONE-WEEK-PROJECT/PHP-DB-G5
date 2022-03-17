@@ -14,9 +14,15 @@ require_once('database.php');
         $posts = $statement->fetchAll();
         return $posts;
     }
-    function createPost($post_desc, $file_name){
+    function createPost($description, $file_name ){
+        
+            
+        $extension = pathinfo($file_name,PATHINFO_EXTENSION);
+        $randomno=rand(0,100000);
+        $rename='upload'.date('Ymd').$randomno;
+        $newname=$rename.'.'.$extension;
 
-        $target = "../upload_image/" .$file_name;
+        $target = "../upload_image/" .$newname;
         $temporary=$_FILES['file_name']['tmp_name'];
         move_uploaded_file($temporary,$target);
 
@@ -25,7 +31,7 @@ require_once('database.php');
         $statement=$db->prepare("INSERT INTO posts(description, image) VALUES (:post_desc,:image)");
         $statement->execute([
             ':post_desc'=>$post_desc,
-            ':image'=>$file_name,
+            ':image'=>$newname
 
         ]);
         return $statement->rowCount()==1;
@@ -42,21 +48,25 @@ require_once('database.php');
         return $post;
 }
 
-    function updatePost($id, $post_desc, $file_name){
-        $target = "../upload_image/" .$file_name;
+    function updatePost($id, $post_desc,  $file_name){
+
+        $extension = pathinfo($file_name,PATHINFO_EXTENSION);
+        $randomno=rand(0,100000);
+        $rename='upload'.date('Ymd').$randomno;
+        $newname=$rename.'.'.$extension;
+
+        $target = "../upload_image/" .$newname;
         $temporary=$_FILES['file_name']['tmp_name'];
         move_uploaded_file($temporary,$target);
         global $db;
         $statement=$db->prepare("UPDATE posts SET description=:post_desc, image=:image WHERE post_id=:id_post");
         $statement->execute([
             ':post_desc'=> $post_desc,
-            ':image'=> $file_name,
+            ':image'=> $newname,
             ':id_post'=> $id
     ]);
     return ($statement->rowCount()==1);
 }
-  
-
 function deletePost($id)
 {
     

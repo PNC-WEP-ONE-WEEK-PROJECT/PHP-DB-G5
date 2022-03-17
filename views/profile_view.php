@@ -1,7 +1,16 @@
 <div class="container p-3">
     <div class="col-6 cover">
-        <div class="image-profile profile-menu-profile d-flex ">
+        <div class="image-profile profile-menu-profile ">
             <img src="../images/rady.jpg" width="12%" alt="">
+            <!-- <form action="" class="image-profile profile-menu-profile"  enctype="multipart/form-data" method="post">             
+                    
+                    <img id = "img-post" src="" width="100%" height="100%">
+               
+                    <div class="card-footer post-footer p-3">
+                        <label class="btn btn-outline-primary m-1" for="files"><i class="fa fa-ellipsis-h fa-lg"></i></label>
+                        <input type="file" name="file_name" id="files" onchange="loadFile(event)"  style="display:none">
+                    </div>
+            </form> -->
         </div>
     </div>
     <form action="../controllers/create_post.php" class="post-form m-auto mt-5 col-6" enctype="multipart/form-data" method="post">
