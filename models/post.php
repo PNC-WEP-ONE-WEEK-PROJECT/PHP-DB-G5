@@ -49,20 +49,12 @@ require_once('database.php');
 }
 
     function updatePost($id, $post_desc,  $file_name){
-
-        $extension = pathinfo($file_name,PATHINFO_EXTENSION);
-        $randomno=rand(0,100000);
-        $rename='upload'.date('Ymd').$randomno;
-        $newname=$rename.'.'.$extension;
-
-        $target = "../upload_image/" .$newname;
-        $temporary=$_FILES['file_name']['tmp_name'];
-        move_uploaded_file($temporary,$target);
+    
         global $db;
         $statement=$db->prepare("UPDATE posts SET description=:post_desc, image=:image WHERE post_id=:id_post");
         $statement->execute([
             ':post_desc'=> $post_desc,
-            ':image'=> $newname,
+            ':image'=> $file_name,
             ':id_post'=> $id
     ]);
     return ($statement->rowCount()==1);
