@@ -15,15 +15,25 @@ require_once('./models/post.php');
                 $comments = getDataComments($id);
                 foreach ($comments as $comment):
             ?>
-            <div class="card m-2 d-flex justify-content-between">
-                <span class="comment-content p-3"><?php echo $comment['description'] ?></span>
+            <div class="card m-2   ">
+                <div class="dropdown comment-post p-3 ">
+                    <i class="fa fa-ellipsis-h fa-lg" data-bs-toggle="dropdown"></i>
+                    <ul class="dropdown-menu">
+                        <!-- <li><a class="dropdown-item" href="../index.php?pages=edit_view&post_id=<?= $post['post_id']?>">Edit</a></li> -->
+                        <li><a class="dropdown-item" href="../controllers/delete_comment.php?comment_id=<?php echo $comment['comment_id'];?>">Delete</a></li>
+                    </ul>
+                </div>
+                <div class=" p-3">
+                    <span ><?php echo $comment['description'] ?></span>
+
+                </div>
             </div>
             <?php endforeach;?>
         </div>
         <form action="../controllers/comment_controller.php" class="form-comment p-3" method="POST">
             <input type="text" class="form-control p-3 comment" name="comment_desc" placeholder="Add comment ...">
             <input type="hidden" value="<?php echo $post['post_id'];?>" name="postId">
-            <button type="submit" name="submit-comment" class="btn mt-3">POST</button>
+            <button type="submit" name="submit-comment" class="btn mt-3">POST COMMENT</button>
         </form>
     </div>
 </div>

@@ -73,7 +73,7 @@ function deletePost($id)
 
 function getDataComments($post_id) {
     global $db;
-    $statement = $db->query("SELECT description FROM comments WHERE post_id = $post_id");
+    $statement = $db->query("SELECT description, comment_id FROM comments WHERE post_id = $post_id");
     $comments = $statement->fetchAll();
     return $comments;
 }
@@ -86,4 +86,15 @@ function createComments($comment_desc,$post_id) {
         ':id_post'=> $post_id
     ]);
     return ($statement -> rowCount()==1);
+}
+function deleteComment($comment_id)
+{
+    
+    global $db;
+
+    $statament = $db->prepare("DELETE FROM comments where comment_id=:id;");
+    $statament -> execute([
+        ':id' => $comment_id
+    ]);
+    return ($statament -> rowCount()==1);
 }

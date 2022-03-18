@@ -2,7 +2,6 @@
 <?php
 require_once('templates/header.php');
 ?>
-
 <!-- MAIN -----------------------------------------  -->
 <div class="main-content">
     <main>

@@ -2,6 +2,8 @@
 <?php
     // TODO: Get all data from database and display it
     require_once('./models/post.php');
+    require_once('form_post_view.php');
+    
     $user = getDataUser();
     $posts = getDataPosts();
     foreach ($posts as $post):

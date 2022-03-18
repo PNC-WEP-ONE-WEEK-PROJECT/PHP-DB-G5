@@ -5,6 +5,7 @@
     $post_id = $_POST['postId'];
     createComments($comment_desc,$post_id);
 
-    header('location:/index.php');
+  
+    header('location:/index.php?pages=commet_view');
 ?>
 
