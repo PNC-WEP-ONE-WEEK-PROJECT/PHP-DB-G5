@@ -34,8 +34,9 @@
             </div>
         </div>
         <div class="card-footer p-3 d-flex justify-content-center">
-            <div class="like-group">
-                <img src="../images/like.png" alt="" class="like" width="9%"> <label for="like">Like</label>
+            <div class="like-group" >
+                <img src="../images/like.png" id='increment'  alt="" class="like" width="9%"> 
+                <label id='number' for="like">120k Like</label>
             </div>
             <div class="comment">   
                 <img src="../images/comment.png" class="comment" alt="" width="8%"> <label for="comment">Comment</label>
