@@ -27,6 +27,18 @@
     justify-content: center;
     text-decoration: none;
     color: #0D29BD;
+    opacity: 0.6;
+}
+
+.btn {
+    background-color: #0D29BD;
+    color: #fff;
+}
+
+.active {
+    opacity: 1;
+    margin-bottom: 10px;
+    font-size: 16px;
 }
 
 .profile-post {
@@ -50,13 +62,10 @@
     flex-direction: column;
 }
 
-
-
 /* profile */
 
 .cover {
     margin: auto;
-    width: 560px;
     height: 200px;
     border-radius: 5px;
     background-color: #b3bbe7;
@@ -75,8 +84,8 @@
 
 .profile-menu-profile {
     position: absolute;
-    /* margin-top: 50px;
-    margin-left: 5px; */
+    margin-top: 135px;
+    margin-left: 20px;
     width: 10%;
     height: 10%;
 }

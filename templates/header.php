@@ -12,17 +12,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    
+    <?php 
+        if (isset($_GET['pages'])) {
+            $active = $_GET['pages'];
+        }
+    ?>
 <div class="header">
     <img src="../images/logo.png" alt="logo" width="10%" class="logo">
     <div class="menu">
-        <a href="../index.php?pages=post_view" class="home menu-item">
-            <i class="fa fa-home fa-2x"></i>
+        <a href="../index.php?pages=post_view" class="home menu-item <?php if ($active == 'post_view') echo "active" ?>">
+            <i class="fa fa-home fa-2x "></i>
         </a>
-        <a href="../index.php?pages=profile_view" class="profile menu-item">
-            <i class="fa fa-user fa-2x"></i>
+        <a href="../index.php?pages=profile_view" class="profile menu-item <?php if ($active == 'profile_view') echo "active" ?>">
+            <i class="fa fa-user fa-2x "></i>
         </a>
-        <a href="" class="logout menu-item">
+        <a href="" class="logout menu-item <?php if ($active == 'logout') echo "active" ?>">
             <i class="fa fa-sign-out fa-2x"></i>
         </a>
     </div>

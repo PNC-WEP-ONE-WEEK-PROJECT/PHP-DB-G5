@@ -33,12 +33,14 @@
                 <img src="../upload_image/<?= $post['image']?>" width="100%" alt="">
             </div>
         </div>
-        <div class="card-footer p-3 d-flex justify-content-center">
-            <div class="like-group">
-                <img src="../images/like.png" alt="" class="like" width="9%"> <label for="like">Like</label>
+        <div class="card-footer p-3 d-flex">
+            <div class="like-group col-5" style="cursor: pointer;">
+                <img src="../images/like.png" alt="" class="like mb-2" width="9%"> <label for="like">Like</label>
             </div>
-            <div class="comment">   
-                <img src="../images/comment.png" class="comment" alt="" width="8%"> <label for="comment">Comment</label>
+            <div class="comment-group col-5" style="cursor: pointer;">   
+                <a class="text-decoration-none"  href="../index.php?pages=comment_view&post_id=<?= $post['post_id']?>">
+                    <img src="../images/comment.png" class="comment mt-0" alt="" width="8%"> <label for="comment">Comment</label>
+                </a>
             </div>
         </div>
     </div>
