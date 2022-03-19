@@ -89,12 +89,31 @@ function createComments($comment_desc,$post_id) {
 }
 function deleteComment($comment_id)
 {
-    
     global $db;
-
     $statament = $db->prepare("DELETE FROM comments where comment_id=:id;");
     $statament -> execute([
         ':id' => $comment_id
     ]);
     return ($statament -> rowCount()==1);
+}
+
+function getCommentById($id){
+    global $db;
+    $statement=$db->prepare("SELECT comment_id, description FROM comments WHERE comment_id=:id_comment;");
+    $statement->execute([
+        ':id_comment' => $id
+    ]);
+    $comment = $statement->fetch();
+    return $comment;
+}
+
+function upDateComment($id, $comment_desc){
+    
+    global $db;
+    $statement=$db->prepare("UPDATE comments SET description=:comment_desc WHERE comment_id=:id_comment");
+    $statement->execute([
+        ':comment_desc'=> $comment_desc,
+        ':id_comment'=> $id
+]);
+return ($statement->rowCount()==1);
 }

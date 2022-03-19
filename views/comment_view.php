@@ -19,7 +19,7 @@ require_once('./models/post.php');
                 <div class="dropdown comment-post p-3 ">
                     <i class="fa fa-ellipsis-h fa-lg" data-bs-toggle="dropdown"></i>
                     <ul class="dropdown-menu">
-                        <!-- <li><a class="dropdown-item" href="../index.php?pages=edit_view&post_id=<?= $post['post_id']?>">Edit</a></li> -->
+                        <li><a class="dropdown-item" href="../index.php?pages=edit_comment_view&comment_id=<?= $comment['comment_id']?>">Edit</a></li>
                         <li><a class="dropdown-item" href="../controllers/delete_comment.php?comment_id=<?php echo $comment['comment_id'];?>">Delete</a></li>
                     </ul>
                 </div>
