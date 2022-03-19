@@ -73,7 +73,7 @@ function deletePost($id)
 
 function getDataComments($post_id) {
     global $db;
-    $statement = $db->query("SELECT description, comment_id FROM comments WHERE post_id = $post_id");
+    $statement = $db->query("SELECT description, comment_id, post_id FROM comments WHERE post_id = $post_id");
     $comments = $statement->fetchAll();
     return $comments;
 }

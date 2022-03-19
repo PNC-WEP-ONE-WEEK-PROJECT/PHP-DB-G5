@@ -10,8 +10,41 @@ require_once('./models/post.php');
                 <img src="../images/rady.jpg" alt="profile" class="image-profile" width="6%">
                 <strong class="p-2 profile-name">Rady Y</strong>
             </div>
+
             <?php
-                require_once('./models/post.php');
+
+
+                if(isset($_GET['comment_id']) & isset($_GET['post_id'])){
+                    $id = $_GET['comment_id'];
+                    $comment = getCommentById($id);
+                    
+                    ?>
+                    <form action="../controllers/comment_controller.php" class="form-comment p-3" method="POST">
+                        <input type="text" class="form-control p-3 comment" value="<?php  if(isset($_GET['comment_id'])){ echo $comment['description'];}?>" name="comment_desc" placeholder="Add comment ...">
+                        <input type="hidden" value="<?php echo $comment['comment_id'];?>" name="commentId">
+                        <input type="hidden" value="<?php echo $post['post_id'];?>" name="postId">
+                        <button type="submit" name="submit-comment" class="btn mt-3">EDIT</button>
+                    </form>
+                <?php  
+                }elseif (isset($_GET['post_id'])) {
+                    
+                    ?>
+               
+                    <form action="../controllers/comment_controller.php" class="form-comment p-3" method="POST">
+                        <input type="text" class="form-control p-3 comment" name="comment_desc" placeholder="Add comment ...">
+                        <input type="hidden" value="<?php echo $post['post_id'];?>" name="postId">
+                        <button type="submit" name="submit-comment" class="btn mt-3">POST COMMENT</button>
+                    </form>
+                    <?php
+                }
+                ?>
+
+
+            
+
+            
+            <?php
+            
                 $comments = getDataComments($id);
                 foreach ($comments as $comment):
             ?>
@@ -19,8 +52,9 @@ require_once('./models/post.php');
                 <div class="dropdown comment-post p-3 ">
                     <i class="fa fa-ellipsis-h fa-lg" data-bs-toggle="dropdown"></i>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="../index.php?pages=edit_comment_view&comment_id=<?= $comment['comment_id']?>">Edit</a></li>
-                        <li><a class="dropdown-item" href="../controllers/delete_comment.php?comment_id=<?php echo $comment['comment_id'];?>">Delete</a></li>
+                    <input type="hidden" value="<?php echo $post['post_id'];?>" name="postId">
+                        <li><a class="dropdown-item" href="../index.php?pages=comment_view&comment_id=<?= $comment['comment_id']?>&post_id=<?= $post['post_id']?>">Edit</a></li>
+                        <li><a class="dropdown-item" href="../controllers/comment_controller.php?comment_id=<?= $comment['comment_id']?>&post_id=<?= $post['post_id']?>">Delete</a></li>
                     </ul>
                 </div>
                 <div class=" p-3">
@@ -30,10 +64,9 @@ require_once('./models/post.php');
             </div>
             <?php endforeach;?>
         </div>
-        <form action="../controllers/comment_controller.php" class="form-comment p-3" method="POST">
-            <input type="text" class="form-control p-3 comment" name="comment_desc" placeholder="Add comment ...">
-            <input type="hidden" value="<?php echo $post['post_id'];?>" name="postId">
-            <button type="submit" name="submit-comment" class="btn mt-3">POST COMMENT</button>
-        </form>
+        
+        
+
+        
     </div>
 </div>
