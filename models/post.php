@@ -99,7 +99,7 @@ function deleteComment($comment_id)
 
 function getCommentById($id){
     global $db;
-    $statement=$db->prepare("SELECT comment_id, description FROM comments WHERE comment_id=:id_comment;");
+    $statement=$db->prepare("SELECT * FROM comments WHERE comment_id=:id_comment;");
     $statement->execute([
         ':id_comment' => $id
     ]);
@@ -114,6 +114,19 @@ function upDateComment($id, $comment_desc){
     $statement->execute([
         ':comment_desc'=> $comment_desc,
         ':id_comment'=> $id
-]);
-return ($statement->rowCount()==1);
+    ]);
+    return ($statement->rowCount()==1);
+}
+
+function AddLike($user_id,$post_id) {
+    global $db;
+    $statement = $db->query("INSERT INTO likes(user_id,post_id) VALUES($user_id,$post_id)");
+    return ($statement -> rowCount()==1);
+}
+
+function getLikes() {
+    global $db;
+    $statement = $db -> query("SELECT * FROM likes");
+    $likes = $statement->fetchAll();
+    return $likes;
 }

@@ -5,6 +5,7 @@
     require_once('form_post_view.php');
     
     $user = getDataUser();
+    
     $posts = getDataPosts();
     foreach ($posts as $post):
 ?> 
@@ -35,13 +36,24 @@
                 <img src="../upload_image/<?= $post['image']?>" width="100%" alt="">
             </div>
         </div>
+        <?php
+            $likes = getLikes();
+            $likeIncrement=0;
+            foreach ($likes as $like) {
+                if ($like['post_id'] == $post['post_id']) {
+                    $likeIncrement++;
+                }
+            }
+        ?>
         <div class="card-footer p-3 d-flex">
             <div class="like-group col-5" style="cursor: pointer">
-                <img src="../images/like.png" alt="" class="like mb-2" width="9%"> <label for="like" style="cursor: pointer">Like</label>
+                <a class="text-decoration-none text-black " href="../controllers/like.php?post_id=<?= $post['post_id']?>">
+                    <img src="../images/like.png" alt="" class="like mb-2" width="9%"> <label for="like" style="cursor: pointer"> <?php echo $likeIncrement ?> Like</label>
+                </a>
             </div>
             <div class="comment-group col-5" style="cursor: pointer;">   
                 <a class="text-decoration-none text-black "  href="../index.php?pages=comment_view&post_id=<?= $post['post_id']?>">
-                    <img src="../images/comment.png"  class="comment mt-0" alt="" width="8%"> <label for="comment" style="cursor: pointer">Comment</label>
+                    <img src="../images/comment.png"  class="comment mt-0" alt="" width="8%"> <label for="comment" style="cursor: pointer"><?php echo $increment ?>Comment</label>
                 </a>
             </div>
         </div>
