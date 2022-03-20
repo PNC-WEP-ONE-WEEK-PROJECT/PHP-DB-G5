@@ -14,7 +14,7 @@
                 <div class="card-footer post-footer p-3">
                     <label class="btn btn-outline-primary m-1" for="files">Select Image</label>
                     <input type="file" name="file_name" id="files" onchange="loadFile(event)"  style="display:none">
-                    <button type="submit" name="post" class="btn btn-primary m-1">POST</button>
+                    <button type="submit" name="post" class="btn btn-primary m-1" >POST</button>
                 </div>
             </div>
     

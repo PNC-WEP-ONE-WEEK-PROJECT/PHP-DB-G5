@@ -4,7 +4,7 @@ require_once('database.php');
 <?php
     function getDataUser() {
         global $db;
-        $statement = $db->query("SELECT username,image FROM users;");
+        $statement = $db->query("SELECT username, email, password,image FROM users;");
         $users = $statement->fetch();
         return $users;
     }
@@ -14,6 +14,9 @@ require_once('database.php');
         $posts = $statement->fetchAll();
         return $posts;
     }
+
+ 
+    
     function createPost($post_desc, $file_name ){
         
             
