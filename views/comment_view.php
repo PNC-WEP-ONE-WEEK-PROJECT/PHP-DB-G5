@@ -17,7 +17,6 @@ require_once('./models/post.php');
                 if(isset($_GET['comment_id']) & isset($_GET['post_id'])){
                     $id = $_GET['comment_id'];
                     $comment = getCommentById($id);
-                    
                     ?>
                     <form action="../controllers/comment_controller.php" class="form-comment p-3" method="POST">
                         <input type="text" class="form-control p-3 comment" value="<?php  if(isset($_GET['comment_id'])){ echo $comment['description'];}?>" name="comment_desc" placeholder="Add comment ...">
