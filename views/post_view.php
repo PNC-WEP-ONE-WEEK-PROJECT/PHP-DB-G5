@@ -53,7 +53,7 @@
             </div>
             <div class="comment-group col-5" style="cursor: pointer;">   
                 <a class="text-decoration-none text-black "  href="../index.php?pages=comment_view&post_id=<?= $post['post_id']?>">
-                    <img src="../images/comment.png"  class="comment mt-0" alt="" width="8%"> <label for="comment" style="cursor: pointer"><?php echo $increment ?>Comment</label>
+                    <img src="../images/comment.png"  class="comment mt-0" alt="" width="8%"> <label for="comment" style="cursor: pointer">Comment</label>
                 </a>
             </div>
         </div>
