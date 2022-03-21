@@ -1,23 +1,29 @@
 <div class="container p-3">
 <?php
+    session_start();
     // TODO: Get all data from database and display it
     require_once('./models/post.php');
     require_once('form_post_view.php');
+    $email = $_SESSION['email'];
+    $password = $_SESSION['password'];
+
+    $user = getDataUser($password,$email);
     
-    $user = getDataUser();
-    
-    $posts = getDataPosts();
+    $posts = getDataPosts($email,$password);
     foreach ($posts as $post):
 ?> 
     <div class="card col-6 mt-2 p-0">
         <div class="card-header profile-post">    
-            <div class="profile_user">
-                <a href="../linkPage.php?pages=profile_view">
-                    <img src="../images/<?= $user['image']; ?>" width="10%" alt="" class="image-profile">
-                    <strong class="p-2 profile_name"><?= $user['username'] ?></strong>
-                </a>
+           
+            <a class="profile_user" href="../linkPage.php?pages=profile_view">
+                <img src="../images/<?= $user['image']; ?>" width="12%" alt="" class="image-profile">
+                <div class="p-2 profile_name  ">
+                    <p ><?= $user['username'] ?> </p>
+                    <p ><?= $post['date']?> </p>
+                </div>
+            </a>
                 
-            </div>      
+             
             <div class="dropdown">
                 <i class="fa fa-ellipsis-h fa-lg" data-bs-toggle="dropdown"></i>
                 <ul class="dropdown-menu">

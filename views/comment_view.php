@@ -1,5 +1,12 @@
 <?php
-require_once('./models/post.php');
+    require_once('./models/post.php');
+    session_start();
+    // TODO: Get all data from database and display it
+    
+    $username = $_SESSION['email'];
+    $password = $_SESSION['password'];
+    $user = getDataUser($password,$username);
+
    $id = $_GET['post_id'];
    $post = getPostById($id);
 ?>
@@ -7,8 +14,8 @@ require_once('./models/post.php');
     <div class="card col-6 p-2">
         <div class="commenter p-3">
             <div class="profile p-2">
-                <img src="../images/rady.jpg" alt="profile" class="image-profile" width="6%">
-                <strong class="p-2 profile-name">Rady Y</strong>
+                <img src="../images/<?= $user['image'] ?>" alt="profile" class="image-profile" width="6%">
+                <strong class="p-2 profile-name"><?= $user['username'] ?></strong>
             </div>
 
             <?php

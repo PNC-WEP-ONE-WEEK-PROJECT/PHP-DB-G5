@@ -60,6 +60,7 @@
 
 .image-profile img,.image-profile {
     border-radius: 50%;
+    background-color: rgb(204, 203, 203);
    
 }
 
@@ -85,19 +86,25 @@
     
     cursor: pointer;
 }
-.profile_user a{
+.profile_user {
+    display: flex;
+   
     text-decoration: none;
     color: black;
-}
-.profile_user{
     cursor: pointer;
+}
+.profile_name{
+    font-weight: bold;
+    line-height: 0.48;
+    margin-top: 10px;
+    /* padding-top: 5px; */
 }
 
 .profile-menu-profile {
     position: absolute;
     width: 10%;
     height: 10%;
-    margin-top: 100px;
+    margin-top: 120px;
     margin-left: 20px;
 }
 

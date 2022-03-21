@@ -2,22 +2,48 @@
 require_once('database.php');
 ?>
 <?php
-    function getDataUser() {
+
+    function createUsers($username,  $email, $password,$gender ){
         global $db;
-        $statement = $db->query("SELECT username, email, password,image FROM users;");
+        $statement=$db->prepare("INSERT INTO users(username, email, password, gender) VALUES (:username,:email,:password,:gender)");
+        $statement->execute([
+            ':username'=>$username,
+            ':email'=>$email,
+            ':password'=>$password,
+            ':gender'=>$gender
+
+        ]);
+        return $statement->rowCount()==1;
+    }
+
+
+
+    function getDataUser($password,$email) {
+        global $db;
+        $statement = $db->prepare("SELECT * FROM users where email=:email and password=:password;");
+        $statement->execute([
+            ':password'=> $password,
+            ':email'=> $email
+        ]);
         $users = $statement->fetch();
         return $users;
     }
-    function getDataPosts() {
+    function getDataPosts($email,$password) {
         global $db;
-        $statement = $db->query("SELECT description,image,post_id FROM posts");
+        $statement = $db->prepare("SELECT * FROM user_posts where email=:email and password=:password order by post_id DESC");
+        $statement -> execute(
+            [
+                ':email' => $email,
+                ':password' => $password
+            ]
+            );
         $posts = $statement->fetchAll();
         return $posts;
     }
 
  
     
-    function createPost($post_desc, $file_name ){
+    function createPost($post_desc, $file_name,$user_id ){
         
             
         $extension = pathinfo($file_name,PATHINFO_EXTENSION);
@@ -31,10 +57,11 @@ require_once('database.php');
 
         global $db;
     
-        $statement=$db->prepare("INSERT INTO posts(description, image) VALUES (:post_desc,:image)");
+        $statement=$db->prepare("INSERT INTO posts(description, image,user_id) VALUES (:post_desc,:image,:user_id)");
         $statement->execute([
             ':post_desc'=>$post_desc,
-            ':image'=>$newname
+            ':image'=>$newname,
+            ':user_id' => $user_id
 
         ]);
         return $statement->rowCount()==1;
