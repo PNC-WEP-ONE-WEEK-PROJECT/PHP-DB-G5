@@ -12,13 +12,13 @@
     $posts = getDataPosts($email,$password);
     foreach ($posts as $post):
 ?> 
-    <div class="card col-6 mt-2 p-0">
+    <div class="card col-6 mt-3 p-0">
         <div class="card-header profile-post">    
            
             <a class="profile_user" href="../linkPage.php?pages=profile_view">
                 <img src="../images/<?= $user['image']; ?>" width="12%" alt="" class="image-profile">
-                <div class="p-2 profile_name  ">
-                    <p ><?= $user['username'] ?> </p>
+                <div class="p-1 profile_name  ">
+                    <h5 class="text-primary text-20px" ><?= $user['username'] ?> </h5>
                     <p ><?= $post['date']?> </p>
                 </div>
             </a>

@@ -1,4 +1,4 @@
-<form action="../controllers/create_post.php" class="post-form m-auto mt-3 col-6" enctype="multipart/form-data" method="post">
+<form action="../controllers/create_post.php" class="post-form m-auto mt-5 col-6" enctype="multipart/form-data" method="post">
       
             <div class="card post">
                 <div class="card-header post-header">
