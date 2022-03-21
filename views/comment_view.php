@@ -47,16 +47,16 @@ require_once('./models/post.php');
                 $comments = getDataComments($id);
                 foreach ($comments as $comment):
             ?>
-            <div class="card m-2   ">
+            <div class="card m-2  box-comment  ">
                 <div class="dropdown comment-post p-3 ">
                     <i class="fa fa-ellipsis-h fa-lg" data-bs-toggle="dropdown"></i>
                     <ul class="dropdown-menu">
                     <input type="hidden" value="<?php echo $post['post_id'];?>" name="postId">
-                        <li><a class="dropdown-item" href="../index.php?pages=comment_view&comment_id=<?= $comment['comment_id']?>&post_id=<?= $post['post_id']?>">Edit</a></li>
+                        <li><a class="dropdown-item" href="../linkPage.php?pages=comment_view&comment_id=<?= $comment['comment_id']?>&post_id=<?= $post['post_id']?>">Edit</a></li>
                         <li><a class="dropdown-item" href="../controllers/comment_controller.php?comment_id=<?= $comment['comment_id']?>&post_id=<?= $post['post_id']?>">Delete</a></li>
                     </ul>
                 </div>
-                <div class=" p-3">
+                <div class=" p-3 text-comment">
                     <span ><?php echo $comment['description'] ?></span>
 
                 </div>

@@ -1,34 +1,34 @@
-<!-- HEADER -----------------------------------------  -->
-<?php
-require_once('templates/header.php');
-?>
-<!-- MAIN -----------------------------------------  -->
-<div class="main-content">
-    <main>
-        <?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
 
-        // 0 - We set the  path by default to home
-        $path = 'views/post_view.php';
+    <link rel="stylesheet" href="CSS/style.css">
 
-        // 1 - Check if a page parameter is defined in the URL  
-        if (isset($_GET['pages'])) {
+</head>
 
-            // 2 If yes : compute the PATH of the page  (example :  pages/students.php)
-            $pageFile = 'views/'.$_GET['pages'].'.php';
+<body> 
 
-            // 3 Check if the file exists, you can use file_exists() with the path computed above
-            if (file_exists($pageFile)) {
-                $path = $pageFile;
-            }
-        }
+    
+    <div class="h1">
+    <h2 class="titleLogin">facebook</h2>
+    <p class="praLogin">Facebook helps you to find new relationship.</p>
+    </div>  
+            <form class="main-form"  action="controllers/checkUserLogin.php" method="post">
+                <input type="text" name="emailLogin" placeholder="Email address" class="main-input"><br>
+                <input type="password" name="passwordLogin" placeholder="Password" class="main-input"><br>
+                <input type="submit" value="Log In" name="submit" class="login-btn"><br>
 
-        // 4 Require the PATH of the page
-        require_once($path);
-        ?>
-    </main>
-</div>
-
-<!-- FOOTER -----------------------------------------  -->
-<?php
-require_once('templates/footer.php');
-?>
+                <p class="p">Don't have an Account?</p>
+            
+                <div class="createAcount">
+                    <a href="signUp.php" class="btn-createAcount">Create New Account</a>
+                </div>
+          
+            
+            </form>
+</body>
+</html>

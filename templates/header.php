@@ -22,13 +22,13 @@
 <div class="header">
     <img src="../images/logo.png" alt="logo" width="10%" class="logo">
     <div class="menu">
-        <a href="../index.php?pages=post_view" class="home menu-item <?php if ($active != 'profile_view' & $active != 'comment_view' ) echo "active" ?>">
+        <a href="../linkPage.php?pages=post_view" class="home menu-item <?php if ($active != 'profile_view' & $active != 'comment_view' ) echo "active" ?>">
             <i class="fa fa-home fa-2x "></i>
         </a>
-        <a href="../index.php?pages=profile_view" class="profile menu-item <?php if ($active == 'profile_view') echo "active" ?>">
+        <a href="../linkPage.php?pages=profile_view" class="profile menu-item <?php if ($active == 'profile_view') echo "active" ?>">
             <i class="fa fa-user fa-2x "></i>
         </a>
-        <a href="../login_view.php" class="logout menu-item <?php if ($active == 'logout') echo "active" ?>">
+        <a href="../index.php" class="logout menu-item <?php if ($active == 'logout') echo "active" ?>">
             <i class="fa fa-sign-out fa-2x"></i>
         </a>
     </div>

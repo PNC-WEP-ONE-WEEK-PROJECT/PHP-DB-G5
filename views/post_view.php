@@ -12,7 +12,7 @@
     <div class="card col-6 mt-2 p-0">
         <div class="card-header profile-post">    
             <div class="profile_user">
-                <a href="../index.php?pages=profile_view">
+                <a href="../linkPage.php?pages=profile_view">
                     <img src="../images/<?= $user['image']; ?>" width="10%" alt="" class="image-profile">
                     <strong class="p-2 profile_name"><?= $user['username'] ?></strong>
                 </a>
@@ -21,7 +21,7 @@
             <div class="dropdown">
                 <i class="fa fa-ellipsis-h fa-lg" data-bs-toggle="dropdown"></i>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../index.php?pages=edit_view&post_id=<?= $post['post_id']?>">Edit post</a></li>
+                    <li><a class="dropdown-item" href="../linkPage.php?pages=edit_view&post_id=<?= $post['post_id']?>">Edit post</a></li>
                     <li><a class="dropdown-item" href="../controllers/delete_post.php?post_id=<?php echo $post['post_id'];?>">Delete post</a></li>
                 </ul>
             </div>
@@ -52,7 +52,7 @@
                 </a>
             </div>
             <div class="comment-group col-5" style="cursor: pointer;">   
-                <a class="text-decoration-none text-black "  href="../index.php?pages=comment_view&post_id=<?= $post['post_id']?>">
+                <a class="text-decoration-none text-black "  href="../linkPage.php?pages=comment_view&post_id=<?= $post['post_id']?>">
                     <img src="../images/comment.png"  class="comment mt-0" alt="" width="8%"> <label for="comment" style="cursor: pointer">Comment</label>
                 </a>
             </div>

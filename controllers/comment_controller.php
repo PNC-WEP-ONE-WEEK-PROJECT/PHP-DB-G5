@@ -20,5 +20,5 @@
 
 
     
-    header("location:/index.php?pages=comment_view&post_id=$post_id");
+    header("location:/linkPage.php?pages=comment_view&post_id=$post_id");
 ?>

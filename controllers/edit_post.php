@@ -20,7 +20,7 @@
 
         updatePost($id, $post_desc,  $newname);
         
-        header('location: /index.php');
+        header('location: /linkPage.php');
 
 
     ?>

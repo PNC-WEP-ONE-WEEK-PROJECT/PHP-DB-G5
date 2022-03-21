@@ -16,6 +16,6 @@
         
      <?php
     }
-    header('location:/index.php');
+    header('location:/linkPage.php');
 ?>
 
