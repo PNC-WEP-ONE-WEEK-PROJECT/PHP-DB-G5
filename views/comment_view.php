@@ -14,7 +14,7 @@
     <div class="card col-6 p-2">
         <div class="commenter p-3">
             <div class="profile p-2">
-                <img src="../images/<?= $user['image'] ?>" alt="profile" class="image-profile" width="6%">
+                <img src="../images/<?= $user['image'] ?>" alt="profile" class="image-profile" width="40px" height="40px">
                 <strong class="p-2 profile-name"><?= $user['username'] ?></strong>
             </div>
 
