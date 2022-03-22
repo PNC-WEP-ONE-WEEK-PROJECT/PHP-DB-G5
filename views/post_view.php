@@ -1,6 +1,9 @@
 <div class="container p-3">
 <?php
-    session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
     // TODO: Get all data from database and display it
     require_once('./models/post.php');
     require_once('form_post_view.php');
@@ -15,8 +18,8 @@
     <div class="card col-6 mt-3 p-0">
         <div class="card-header profile-post">    
            
-            <a class="profile_user" href="../linkPage.php?pages=profile_view">
-                <img src="../images/<?= $user['image']; ?>" width="12%" alt="" class="image-profile">
+            <a class="profile_user" width="60px" height="60px" href="../linkPage.php?pages=profile_view">
+                <img src="../images/<?= $user['image']; ?>" width="60px" height="60px" alt="" class="image-profile">
                 <div class="p-1 profile_name  ">
                     <h5 class="text-primary text-20px" ><?= $user['username'] ?> </h5>
                     <p ><?= $post['date']?> </p>
@@ -53,7 +56,7 @@
         ?>
         <div class="card-footer p-3 d-flex">
             <div class="like-group col-5" style="cursor: pointer">
-                <a class="text-decoration-none text-black " href="../controllers/like.php?post_id=<?= $post['post_id']?>">
+                <a class="text-decoration-none text-black " href="../controllers/like_controller.php?post_id=<?= $post['post_id']?>">
                     <img src="../images/like.png" alt="" class="like mb-2" width="9%"> <label for="like" style="cursor: pointer"> <?php echo $likeIncrement ?> Like</label>
                 </a>
             </div>
