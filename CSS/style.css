@@ -140,7 +140,7 @@
     position: absolute;
     background-color: #ffff;
     width: 400px;
-    height: 450px;
+    height: 500px;
     left: 55%;
     top: 15%;
     margin: 10px;
@@ -243,7 +243,7 @@ h1{
     left: 30%;
     max-width: 25%;
     margin:  auto;
-    height:400px;
+    height:450px;
     margin-top: 100px;
     background-color: white;
     position: relative;
@@ -388,4 +388,25 @@ h1{
 .text-comment{
     margin-left:25px;
     margin-top: -30px;
+}
+
+
+/* validation */
+.error{
+    background: #f2DEDE;
+    color: #A94442;
+    padding: 10px;
+    width: 93%;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+.errorsignup{
+    background: #f2DEDE;
+    color: #A94442;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 20px;
+    /* margin-left: 15px; */
 }

@@ -5,32 +5,28 @@
     $_SESSION['password'] = $_POST['passwordLogin'];
     $user=getDataUser($_SESSION['password'],$_SESSION['email']); 
   
-    if( !empty($_SESSION['password']) & !empty($_SESSION['email'])){
+    if( empty($_SESSION['password']) & empty($_SESSION['email'])){
      
-       if($_SESSION['password']==$user['password'] && $_SESSION['email']==$user['email']){
+      header('location:/index.php?error=Invalid input');
 
-
-
-         header('location:/linkPage.php');
-       
-
-         }elseif( $_POST['emailLogin']!==$user['email']){
-         $emailInvalid="Wrong email";
-         header('location:/index.php?emailInvalid=Wrong email');
-         
-         }elseif( $_POST['passwordLogin']!==$user['password']){
-         $passInvalid="Wrong password";
-         header('location:/index.php');
-         
-         }
-
+    }elseif(empty($_SESSION['password'])){
+      header('location:/index.php?error=Password is requierd');
+    }elseif(empty($_SESSION['email'])){
+      header('location:/index.php?error=Email is requierd');
     }else{
-       ?>
      
-        <script>alert("please login email and password")</script>;
+      if($_SESSION['password']==$user['password'] && $_SESSION['email']==$user['email']){
+
+
+
+        header('location:/linkPage.php');
+      
+
+        }elseif($_SESSION['password']!==$user['password'] || $_SESSION['email']!==$user['email']){
         
-     <?php
-      header('location:/index.php');
+        header('location:/index.php?error=Invalid email or password');
+        
+        }
     }
     
 ?>

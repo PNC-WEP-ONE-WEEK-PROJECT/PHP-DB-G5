@@ -16,7 +16,10 @@
            <div class="modal-signup-heading">              
                <p class="modal-signup-name">Sign Up</p>              
                <p class="modal-signup-child-name">It's quick and easy.</p>              
-           </div>          
+           </div>   
+           <?php if (isset($_GET['errorsignup'])){?>
+                    <p class="errorsignup"><?php echo $_GET['errorsignup']; ?></p>
+               <?php } ?>       
            <div class="modal-signup-name">                    
               <input type="text" name="username" placeholder="Username">              
            </div>           
